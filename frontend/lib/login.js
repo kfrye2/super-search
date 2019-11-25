@@ -6,7 +6,7 @@ function getLogin(user_info){
     const header = {'Accept': "application/json",
         "Content-Type": "application/x-www-form-urlencoded"};
     const searchParams = new URLSearchParams(user_info);
-    return fetch("http://localhost:8080/api/login", {
+    return fetch("http://35.245.126.165/api/login", {
         method: "POST",
         header: header,
         body: searchParams
@@ -27,7 +27,7 @@ function createUser(user_info){
     const header = {'Accept': "application/json",
         "Content-Type": "application/x-www-form-urlencoded"};
     const searchParams = new URLSearchParams(user_info);
-    return fetch("http://localhost:8080/api/create", {
+    return fetch("http://35.245.126.165/api/create", {
         method: "POST",
         header: header,
         body: searchParams
