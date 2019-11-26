@@ -50,7 +50,7 @@ class Home extends React.Component {
                 <p className='warning'><b>{this.state.search}</b> Not Found</p> 
                 : null }
             </div>
-          {this.state.data && this.state.search!='' ? 
+          {this.state.data!=null && this.state.search!='' ? 
             <div>
                 <table id="food-table">
                   <thead>

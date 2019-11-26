@@ -3,7 +3,7 @@ import BPromise from "bluebird";
 
 async function getUserItems(searchParam){
     return fetch(`http://35.245.126.165/api/usersearch?param=${searchParam.search}&username=${searchParam.un}`).then(function(resp) {
-        return resp.json();
+	return resp.json();
     })
 };
 

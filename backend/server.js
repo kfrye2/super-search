@@ -101,6 +101,7 @@ app.post("/api/login", async (req, res) => {
       
       if (responseMovie.rowCount == 0) {
         if(response.rowCount == 0) {
+	  res.json({ info : response.rows });
         } else {
           const results = response.rows.map(function(item) {
             return item;
@@ -142,6 +143,7 @@ app.post("/api/login", async (req, res) => {
 
       if (responseMovie.rowCount == 0) {
         if(response.rowCount == 0) {
+	  res.json({ info: response.rows });
         } else {
           const results = response.rows.map(function(item) {
             return item;
