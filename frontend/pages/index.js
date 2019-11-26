@@ -20,8 +20,13 @@ class Home extends React.Component {
     } else {
       data = await getUserInfo({search:p,un:jsCookie.get("screenname")});
     }
-    this.setState({display: data === null ? true : false, 
-      isTheater: data.items.info[0].theater !=undefined ? true : false});
+
+    if(data.items.info.length===0){
+      this.setState({ display: true });
+    } else {
+      this.setState({ display: false, 
+        isTheater: data.items.info[0].theater !=undefined ? true : false });
+    }
     return this.setState({data});
   }
   render() {
@@ -47,10 +52,11 @@ class Home extends React.Component {
                 value={this.state.search} 
                 onChange={this.handleUpdate.bind(this)}/></p>
               {this.state.display ? 
-                <p className='warning'><b>{this.state.search}</b> Not Found</p> 
+                <div><br/><p className='warning'><b>{this.state.search}</b> Not Found
+                <br/><small>Please try another serach</small></p></div>
                 : null }
             </div>
-          {this.state.data!=null && this.state.search!='' ? 
+          {this.state.data && this.state.display==false && this.state.search!='' ? 
             <div>
                 <table id="food-table">
                   <thead>
@@ -137,6 +143,32 @@ class Home extends React.Component {
             .link {
               font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
               color: #28e0f4;
+            }
+            .warning {
+              font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+              color: white;
+              position: relative;
+              background: rgba(255,37,64,0.8);
+              border-radius: 12px;
+              width: 150px;
+              margin: auto auto;
+              text-align: center;
+              padding: 40px 20px 40px 20px;
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            .warning:after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 50%;
+              width: 0;
+              height: 0;
+              border: 20px solid transparent;
+              border-bottom-color: rgba(255,37,64,0.8);
+              border-top: 0;
+              border-left: 0;
+              margin-left: -10px;
+              margin-top: -20px;
             }
           `}</style>
         </div>

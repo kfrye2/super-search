@@ -2,8 +2,9 @@ require("isomorphic-fetch");
 import BPromise from "bluebird";
 
 async function getUserItems(searchParam){
-    return fetch(`http://35.245.126.165/api/usersearch?param=${searchParam.search}&username=${searchParam.un}`).then(function(resp) {
-	return resp.json();
+    //return fetch(`http://35.245.126.165/api/usersearch?param=${searchParam.search}&username=${searchParam.un}`).then(function(resp) {
+    return fetch(`http://localhost:8080/api/usersearch?param=${searchParam.search}&username=${searchParam.un}`).then(function(resp) {
+	    return resp.json();
     })
 };
 
@@ -14,7 +15,8 @@ function getUserData(param) {
 };
 
 async function getItems(searchParam){
-    return fetch(`http://35.245.126.165/api/search?param=${searchParam.search}`).then(function(resp) {
+    //return fetch(`http://35.245.126.165/api/search?param=${searchParam.search}`).then(function(resp) {
+    return fetch(`http://localhost:8080/api/search?param=${searchParam.search}`).then(function(resp) {
         return resp.json();
     })
 };
