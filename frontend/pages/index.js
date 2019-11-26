@@ -103,10 +103,13 @@ class Home extends React.Component {
               border-top: 1px solid #dee2e6;
             }            
             #food-table tr:nth-child(even){
-              background-color: #f2f2f2;
+              background-color: rgba(208,244,253,0.4);
+            }
+	    #food-table tr:nth-child(odd){
+              background-color: white;
             }            
             #food-table tr:hover {
-              background-color: rgba(208,244,253, 0.5);
+              background-color: rgba(208,244,253, 1);
             }            
             #food-table th {
               font-family: "Verdana";

@@ -129,7 +129,7 @@ class Login extends React.Component {
               <div><Link href="/"><a>&#8592;&nbsp;Search without signing up</a></Link></div>
             </div>
           ) : null}
-          {this.state.message===6 && this.state.createAccount==true ? (
+          {(this.state.message===6 || this.state.message===2) && this.state.createAccount==true ? (
             <div>
               <div>
                 <br />
